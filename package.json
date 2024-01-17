@@ -1,9 +1,9 @@
 {
-  "name": "ide-clangd",
+  "name": "pulsar-ide-clangd",
   "main": "lib/main.js",
-  "version": "0.4.0",
-  "description": "C/C++ language support for Atom IDE",
-  "repository": "https://github.com/jbree/ide-clangd",
+  "version": "0.5.0",
+  "description": "C/C++ language support for Pulsar (forked from the original)",
+  "repository": "https://github.com/savetheclocktower/pulsar-ide-clangd",
   "keywords": [
     "atom-ide",
     "ide",
@@ -16,14 +16,15 @@
     "language-server-protocol",
     "language-client"
   ],
-  "author": "Joshua Breeden <jbreeden@me.com>",
+  "author": "Joshua Breeden <jbreeden@me.com> / Andrew Dupont <github@andrewdupont.net>",
   "license": "MIT",
   "engines ": {
-    "atom": ">=1.21.0"
+    "atom": ">=1.112.0"
   },
-  "dependencies": {
-    "atom-languageclient": "^0.9.4"
-  },
+  "activationHooks": [
+    "source.c:root-scope-used",
+    "source.cpp:root-scope-used"
+  ],
   "enhancedScopes": [
     "source.c",
     "source.cpp"
@@ -41,9 +42,20 @@
     }
   },
   "providedServices": {
+    "intentions:list": {
+      "versions": {
+        "1.0.0": "provideIntentionsList"
+      }
+    },
+    "symbol.provider": {
+      "description": "Allows external sources to suggest symbols for a given file or project.",
+      "versions": {
+        "1.0.0": "provideSymbols"
+      }
+    },
     "autocomplete.provider": {
       "versions": {
-        "2.0.0": "provideAutocomplete"
+        "4.0.0": "provideAutocomplete"
       }
     },
     "code-actions": {
@@ -56,6 +68,11 @@
         "0.1.0": "provideCodeFormat"
       }
     },
+    "call-hierarchy": {
+      "versions": {
+        "0.1.0": "provideCallHierarchy"
+      }
+    },
     "code-highlight": {
       "versions": {
         "0.1.0": "provideCodeHighlight"
@@ -66,10 +83,24 @@
         "0.1.0": "provideDefinitions"
       }
     },
-    "signature-help": {
+    "find-references": {
       "versions": {
-        "0.1.0": "provideSignatureHelp"
+        "0.1.0": "provideFindReferences"
+      }
+    },
+    "outline-view": {
+      "versions": {
+        "0.1.0": "provideOutlines"
+      }
+    },
+    "refactor": {
+      "versions": {
+        "0.1.0": "provideRefactor",
+        "0.2.0": "provideRefactorWithPrepare"
       }
     }
+  },
+  "dependencies": {
+    "@savetheclocktower/atom-languageclient": "^1.17.5"
   }
 }
