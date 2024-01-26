@@ -1,7 +1,7 @@
 {
   "name": "pulsar-ide-clangd",
   "main": "lib/main.js",
-  "version": "0.6.0",
+  "version": "0.6.1",
   "description": "C/C++ language support for Pulsar (forked from the original)",
   "repository": "https://github.com/savetheclocktower/pulsar-ide-clangd",
   "keywords": [
