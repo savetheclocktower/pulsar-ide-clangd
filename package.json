@@ -101,6 +101,6 @@
     }
   },
   "dependencies": {
-    "@savetheclocktower/atom-languageclient": "^1.17.5"
+    "@savetheclocktower/atom-languageclient": "^1.17.9"
   }
 }
