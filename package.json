@@ -39,6 +39,16 @@
       "versions": {
         "0.1.0": "consumeDatatip"
       }
+    },
+    "atom-ide-busy-signal": {
+      "versions": {
+        "0.1.0": "consumeBusySignal"
+      }
+    },
+    "signature-help": {
+      "versions": {
+        "0.1.0": "consumeSignatureHelp"
+      }
     }
   },
   "providedServices": {
@@ -95,12 +105,11 @@
     },
     "refactor": {
       "versions": {
-        "0.1.0": "provideRefactor",
         "0.2.0": "provideRefactorWithPrepare"
       }
     }
   },
   "dependencies": {
-    "@savetheclocktower/atom-languageclient": "^1.17.9"
+    "@savetheclocktower/atom-languageclient": "^1.17.11"
   }
 }
